@@ -34,6 +34,16 @@ H[t] = SHA256( canonical(payload) || "|" || H[t-1] )
 payload is a string, so the serialization is byte-for-byte reproducible in
 any language. The genesis hash is `SHA256("koryu-attestation/v1")`.
 
+### Payload contents
+
+- `date`, `board` (the slimmed daily board), `dial` (the regime dial's
+  verdict + inputs), `nonce` — since genesis.
+- `picks` — since 2026-07-19: the day's Strategy v1.0 selection (gate
+  state, the ranked picks, and each excluded major with its reason), so the
+  published strategy record is attested, not just recomputable. Additive:
+  earlier payloads never carried the field and verify unchanged;
+  `verify.py` hashes the revealed payload verbatim either way.
+
 ## Verify it yourself
 
 Standard library only, no install:
