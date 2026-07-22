@@ -43,6 +43,20 @@ any language. The genesis hash is `SHA256("koryu-attestation/v1")`.
   published strategy record is attested, not just recomputable. Additive:
   earlier payloads never carried the field and verify unchanged;
   `verify.py` hashes the revealed payload verbatim either way.
+- `shortboard` — since 2026-07-22: the SHORT board, the bear-side mirror of
+  `board` (same measured columns) plus the frozen BEAR score, the
+  perp-`shortable` flag, and `held` — which coins the v2.0 shadow is actually
+  short at this snapshot.
+- `positions` — since 2026-07-22: what the v2.0 shadow HOLDS at this
+  snapshot, both sleeves (`long`, `short`), each entry as symbol + entry
+  price + dollar amount. Only the held position is committed; its running
+  mark-to-market return is an outcome and stays out.
+
+  Both joined the payload the same day and are additive on the same terms as
+  `picks`: a day missing either hashes exactly as it did before the field
+  existed, and `verify.py` hashes whatever fields the revealed payload
+  carries. They are committed on the completed-bar data, before any
+  live-price display overlay, so the hash never depends on intraday prices.
 
 ## Verify it yourself
 
