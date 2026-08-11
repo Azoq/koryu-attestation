@@ -70,6 +70,12 @@ It reads `reveals/<date>.json` and `chain/<date>.json`, recomputes the
 chained hash, and reports OK or MISMATCH. To also check the timestamp,
 install the OpenTimestamps client and run `ots verify chain/<date>.json.ots`.
 
+## Licence and citation
+
+- **Data** (`chain/`, `reveals/`, and the OpenTimestamps proofs): [CC BY 4.0](LICENSE-DATA). Quote it, re-analyse it, check our claims against it.
+- **Code** (`verify.py`): [MIT](LICENSE), so you can build your own independent checker.
+- A structured citation is in [`CITATION.cff`](CITATION.cff).
+
 ## What this proves, and what it does not
 
 It proves each day's board existed at the committed time and has not been
